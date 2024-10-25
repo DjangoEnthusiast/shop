@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}Shree Hari Telecom{% endblock %}
+{% block content %}
+            <div id="" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{% static 'images/oppo.png' %}" class="d-block w-100" alt="oppo" height="500px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/Realme.png' %}" class="d-block w-100" alt="realme" height="500px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/samsung.png' %}" class="d-block w-100" alt="samsung" height="500px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/vivo.png' %}" class="d-block w-100" alt="vivo" height="500px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{% static 'images/mi.png' %}" class="d-block w-100" alt="mi" height="500px">
+                    </div>
+                </div>
+            </div>
+            <div class="container product my-5">
+                <h1 class="text-center py-3">Best Deal on Smartphones</h1>
+                <div class="owl-carousel owl-theme">
+                    {% for i in phone %}
+                    <div class="item">
+                        <div class="card">
+                            <img src="{{ i.productimage.url }}" class="d-block w-100 img" alt="{{ i.productname }}">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">{{ i.productname }}</h5>
+                                <a href="{% url 'specification' %}?pid={{ i.id }}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="container product my-5">
+                <h1 class="text-center py-3">Best Sellers OF Accessories</h1>
+                <div class="owl-carousel owl-theme">
+                        {% for i in neckband %}
+                        <div class="item">
+                            <div class="card">
+                                <img src="{{ i.productimage.url }}" class="d-block w-100 img" alt="Phone 1">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">{{ i.productname }}</h5>
+                                    <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                </div>
+            </div>
+            <div class="container my-5">
+                <h1 class="text-center py-3">Aug Sale On Tablet</h1>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/ipad.jpeg' %}" class="d-block w-100 img" alt="Phone 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Apple ipad(10th Gen)</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/samsung tab.jpeg' %}" class="d-block w-100 img" alt="Phone 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Galaxy Tab S8 Ultra</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/lenovo.jpeg' %}" class="d-block w-100 img" alt="Phone 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Redmi Pad SE</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/redmi tab.jpeg' %}" class="d-block w-100 img" alt="Phone 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Redmi Pad SE</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container my-5">
+                <h1 class="text-center py-3">All Parts Of Repairing</h1>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/display.jpeg' %}" class="d-block w-100 img" alt="Phone 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Display Screen</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product ">
+                        <div class="card">
+                            <img src="{% static 'images/backpannel.jpeg' %}" class="d-block w-100 img" alt="Phone 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">BackPannel</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/charging.jpeg' %}" class="d-block w-100 img" alt="Phone 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Charging Jacks</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-6 product">
+                        <div class="card">
+                            <img src="{% static 'images/camera.jpg' %}" class="d-block w-100 img" alt="Phone 4">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">camera</h5>
+                                <a href="{% url 'specification' %}" class="btn btn-primary">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="{% static "js/script.js" %}"></script>
+            {% endblock %}

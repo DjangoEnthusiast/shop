@@ -1,0 +1,92 @@
+{% extends 'retailer/retailerbase.html' %}
+{% load static %}
+
+{% block title %}Order Confirmation{% endblock %}
+
+{% block content %}
+<main class="content py-5">
+    <div class="container border-orange">
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <div class="card border-success mb-4">
+                    <div class="card-header text-center bg-success text-white">
+                        <h2 class="mb-0">Order Success</h2>
+                    </div>
+                    <div class="card-body text-center">
+                        <h5 class="mb-3">Thank you for your purchase, {{ data.name }}!</h5>
+                        <h5 class="mb-4">Your order has been placed successfully!</h5>
+                        <p class="mb-0">Thank you for shopping with us. We will process your order shortly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card border-warning mb-4">
+                    <div class="card-header text-center bg-warning text-white">
+                        <h2 class="mb-0">Order Address</h2>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-3">Your order has been successfully placed. Below are the details of your order:</p>
+                        <h5 class="mb-2">Customer Information</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><strong>Order ID:</strong> {{ order_id }}</h6>
+                                <p><strong>Name:</strong> {{ order_details.0.customer_name }}</p>
+                                <p><strong>Date:</strong> {{ order_details.0.date }}</p>
+                                <p><strong>Email:</strong> {{ order_details.0.customer_email }}</p>
+                                <p><strong>Payment Method:</strong> {{ order_details.0.payment_method }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Address:</strong> {{ order_details.0.customer_address }}</p>
+                                <p><strong>City:</strong> {{ order_details.0.customer_city }}</p>
+                                <p><strong>State:</strong> {{ order_details.0.customer_state }}</p>
+                                <p><strong>Pincode:</strong> {{ order_details.0.customer_pincode }}</p>
+                                <p><strong>Contact:</strong> {{ order_details.0.customer_contact }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card border-warning mb-4">
+                    <div class="card-header text-center bg-warning text-white">
+                        <h2 class="mb-0">Order Summary</h2>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-bordered mb-4">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in order_details %}
+                                <tr>
+                                    <td>{{ item.productname }}</td>
+                                    <td>{{ item.productquantity }}</td>
+                                    <td>₹ {{ item.productprice }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <div class="row">
+                            <div class="col-md-6 offset-md-6">
+                                <h6 class="text-right">Subtotal: ₹ {{ sub_total }}</h6>
+                                <h6 class="text-right">GST (9%): ₹ {{ gst }}</h6>
+                                <h6 class="text-right">SGST (9%): ₹ {{ sgst }}</h6>
+                                <h4 class="text-right">Grand Total: ₹ {{ grand_total }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-center my-3">
+            <a href="{% url 'distributerhome' %}" class="btn btn-primary">Continue Shopping</a>
+        </div>
+    </div>
+</main>
+{% endblock %}

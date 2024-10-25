@@ -1,0 +1,124 @@
+{% extends 'distributer/distributerbase.html' %}
+{% load static %}
+
+
+{% block title %}Shree Hari Telecom{% endblock %}
+{% block content %}
+<section class="container ">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 product-img bg-light">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{data.productimage.url}}" alt="vivo t3x 5g Image" class="d-block w-100 img">
+                </div>
+                <div>
+                    <h3>Description:</h3>
+                    <p>{{ data.description }}</p>
+                </div>
+                <div class="card-footer">
+                    <div class="product-actions">
+                        <a href="{% url 'add_to_cart' %}" class="btn btn-primary mx-2">Buy Now</a>
+                        <a href="{% url 'add_to_cart' %}?pid={{ data.id }}"class="btn btn-secondary mx-2">Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-6 product-specifications">
+           
+            <h2>{{ data.productname }}</h2>
+            <h3><i style="font-size:24px" class="fa">&#xf156;</i>{{ data.productprice}}</h3>
+            <div class="row">
+                <h5>Specifications</h5>
+                <div class="col-6">
+                    <h6>In The Box</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.inthebox }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Display Type</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.displaytype }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Battery Capacity</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.batterycapacity }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Processor Brand</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.processorbrand }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Internal Storage</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.internalstorage }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>RAM</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.ram }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Primary Camera</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.primarycamera }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Operating System</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.operatingsystem }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Memory Card Slot Type</h6>
+                </div>
+                <div class="col-6">
+                    <p>
+                        {{ data.memorycardslottype}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Supported Networks</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.supportednetworks }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h6>Warranty Summary</h6>
+                </div>
+                <div class="col-6">
+                    <p>{{ data.warrantysummary }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+            {% endblock %}

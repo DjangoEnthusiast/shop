@@ -1,0 +1,280 @@
+.form-txt {
+    border-style: none;
+}
+
+.form-txt:focus {
+    outline: none;
+}
+
+.form {
+    border-style: groove;
+    border-radius: 6px;
+}
+
+.btn {
+    outline: none;
+    border-style: none;
+}
+
+.navbar .nav-item .nav-link:hover {
+    color: orange;
+}
+
+.nav-link {
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    z-index: 1000;
+}
+
+.navbar-nav .nav-link {
+    font-size: 20px;
+}
+
+.dropdown-menu .dropdown-item {
+    font-size: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .carousel-item img {
+        height: 250px;
+    }
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+footer {
+    background-color: rgb(255, 102, 0);
+    color: white;
+}
+
+section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-specifications {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.product-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.product-actions button {
+    margin: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.product-actions button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.product-img .img {
+    height: 400px;
+}
+
+.product .card .img {
+    height: 350px;
+    width: 100%;
+
+}
+
+.btn-primary {
+    background-color: rgb(255, 102, 0);
+    border-color: rgb(255, 102, 0);
+    color: #ffffff;
+}
+
+.btn-secondary {
+    background-color: #f9c805;
+    border-color: #fcca04;
+    color: #333333;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(255, 102, 0);
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-control {
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: rgb(255, 102, 0);
+    box-shadow: 0 0 10px rgb(255, 102, 0);
+}
+
+.btn-primary {
+    background-color: rgb(255, 102, 0);
+    border-color: rgb(255, 102, 0);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #ff9900;
+    border-color: #ff9900;
+}
+
+.card .category {
+    height: 100%
+}
+
+.card .category {
+    height: 100vh
+}
+
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+/* Style for arrows */
+.owl-nav .owl-prev,
+.owl-nav .owl-next {
+    background-color: #007bff;
+    /* Change to your preferred color */
+    color: #fff;
+    border-radius: 50%;
+    font-size: 24px;
+    /* Adjust size as needed */
+    width: 50px;
+    /* Adjust size as needed */
+    height: 50px;
+    /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
+}
+
+.owl-nav .owl-prev {
+    left: 0;
+}
+
+.owl-nav .owl-next {
+    right: 0;
+}
+
+/* Style for the carousel container */
+.owl-carousel .item {
+    position: relative;
+}
+
+/* Ensure the arrows are visible on top */
+.owl-carousel .owl-nav {
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    /* Make sure arrows are on top */
+}
+
+.product1 img {
+    height: 300px;
+    width: 100%;
+    display: block;
+}
+
+.product1 {
+    transition: transform 0.2s;
+}
+
+.product1:hover {
+    transform: scale(1.05);
+}
+.border-orange {
+    border: 1px solid rgb(255, 102, 0);
+}
+
+.bg-orange {
+    background-color: rgb(255, 102, 0);
+}
+
+.border-orange {
+    border: 2px solid rgb(255, 102, 0);
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}

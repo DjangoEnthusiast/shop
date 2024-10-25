@@ -1,0 +1,192 @@
+{% extends 'distributer/distributerbase.html' %}
+{% load static %}
+
+{% block title %}Shree Hari Telecom{% endblock %}
+
+{% block content %}
+<main class="content py-3">
+    <form action="{% url 'didbuy_now' %}" method="POST">
+        {% csrf_token %}
+        <div class="container my-5">
+            <div class="row">
+                <div class="col-lg-5 col-12">
+                    <div class="card border-orange">
+                        <div class="card-header text-center bg-orange text-white">
+                            <h1>Select Delivery Address</h1>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Select</th>
+                                        <th>Name</th>
+                                        <th>Address</th>
+                                        <th>City</th>
+                                        <th>State</th>
+                                        <th>Postal Code</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for i in delivery %}
+                                    <tr>
+                                        <td>
+                                            <input type="radio" name="address"
+                                                value="{{ i.customer_name }}, {{ i.customer_address }}, {{ i.customer_city }}, {{ i.customer_pincode }},  {{ i.customer_state }},{{ i.customer_contact }},{{ i.customer_email}}"
+                                                required>
+                                        </td>
+                                        <td>{{ i.customer_name }}</td>
+                                        <td>{{ i.customer_address }}</td>
+                                        <td> {{ i.customer_city }} </td>
+                                        <td> {{ i.customer_state }} </td>
+                                        <td>{{ i.customer_pincode }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
+                                Add New Address
+                            </button>
+                            <button type="submit" class="btn btn-primary">Confirm Delivery Address</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <div class="card border-orange">
+                        <div class="card-header text-center bg-orange text-white">
+                            <h1>Shopping Cart</h1>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Name</th>
+                                        <th>Sub Price</th>
+                                        <th>Quantity</th>
+                                        <th>Gst</th>
+                                        <th>Sgst</th>
+                                        <th>Grand Total</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in cart %}
+                                    <tr>
+                                        <td>
+                                            <img src="{{ item.product_image }}" class="avatar img-fluid rounded" alt=""
+                                                style="max-width: 40px; height: auto;">
+                                        </td>
+                                        <td>{{ item.name }}</td>
+                                        <td>₹ {{ item.price }}</td>
+                                        <td>{{ item.quantity}}</td>
+                                        <td>₹ {{ gst }}</td>
+                                        <td>₹ {{ sgst }}</td>
+                                        <td>₹ {{ grand_total }}</td>
+                                        <td><a href="{% url 'didremove_from_cart' %}?pid={{ item.id }}"
+                                                class="btn btn-danger btn-sm">Remove</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card border-orange">
+                            <div class="card-header text-center bg-orange text-white">
+                                <h2>Payment Options</h2>
+                            </div>
+                            <div class="card-body">
+                                <fieldset>
+                                    <legend>Choose a payment method:</legend>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="card"
+                                            id="card" required>
+                                        <label class="form-check-label" for="card">Credit/Debit Card</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="cod"
+                                            id="cod" required>
+                                        <label class="form-check-label" for="cod">Cash on Delivery (COD)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="upi"
+                                            id="upi" required>
+                                        <label class="form-check-label" for="upi">UPI</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="payment_method" value="emi"
+                                            id="emi" required>
+                                        <label class="form-check-label" for="emi">EMI Options</label>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary mt-3" value="Complete Purchase">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="modal fade" id="exampleModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Add New Address</h4>
+                </div>
+                <form action="{% url 'didnewaddress'%}" method="post" class="form">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" value="" id="name"
+                                placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="tel" name="number" class="form-control" id="mobile" value="{{data.customer}}"
+                                placeholder="Enter your mobile number">
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode</label>
+                            <input type="number" name="pincode" class="form-control" id="pincode"
+                                placeholder="Enter your pincode">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" class="form-control" id="city" placeholder="Enter your city">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" class="form-control" id="state"
+                                placeholder="Enter your state">
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" name="email" class="form-control" value="{{data.email_id}}" id="email"
+                                placeholder="Enter your pincode">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea class="form-control" name="address" id="address" placeholder="Enter your address"
+                                style="height: 100px;"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

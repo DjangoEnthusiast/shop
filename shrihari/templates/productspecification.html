@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shree Hari Telecom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="navbar navbar-expand-lg navbar-light">
+                <a href="{% url 'home' %}" class="navbar-brand">
+                    <img src="{% static 'images/shop.png' %}" alt="Shree Hari logo" height="80px" width="120px">
+                </a>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="nav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item dropdown mx-4">
+                            <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Phones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">5g Phones</a></li>
+                                <li><a class="dropdown-item" href="#">4g Phones</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">keypad Phones</a></li>
+                            </ul>
+                        </li>
+                            <li class="nav-item mx-4">
+                                <a href="tablets" class="nav-link">Tablets</a>
+                            </li>
+                            <li class="nav-item dropdown mx-4">
+                                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Accessories
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Earphones</a></li>
+                                <li><a class="dropdown-item" href="#">Data Cabel</a></li>
+                                <li><a class="dropdown-item" href="#">Aux Cabel</a></li>
+                                <li><a class="dropdown-item" href="#">Power Bank</a></li>
+                                <li><a class="dropdown-item" href="#">Mobile Skin</a></li>
+                                <li><a class="dropdown-item" href="#">Charger</a></li>
+                                <li><a class="dropdown-item" href="#">Temper/Glass</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Neckband</a></li>
+                                <li><a class="dropdown-item" href="#">Smart Watch</a></li>
+                                <li><a class="dropdown-item" href="#">Airdopes/Buds</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown mx-4">
+                                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Repairing
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Mobile Screen/Combo</a></li>
+                                <li><a class="dropdown-item" href="#">Charging Board</a></li>
+                                <li><a class="dropdown-item" href="#">Batteries</a></li>
+                                <li><a class="dropdown-item" href="#">Back Pannel</a></li>
+                                <li><a class="dropdown-item" href="#">Middle OF Mobile</a></li>
+                                <li><a class="dropdown-item" href="#">Camera</a></li>
+                                <li><a class="dropdown-item" href="#">Speaker</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">iphone Screen</a></li>
+                                <li><a class="dropdown-item" href="#">iphone Battery</a></li>
+                                <li><a class="dropdown-item" href="#">iphone Camera</a></li>
+                                <li><a class="dropdown-item" href="#">iphone Back Glass</a></li>
+                                <li><a class="dropdown-item" href="#">iphone Connector</a></li>
+                                <li><a class="dropdown-item" href="#">iphone Speaker</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown mx-4">
+                                <a class="nav-link dropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Software
+                                </a>
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Android Software</a></li>
+                                <li><a class="dropdown-item" href="#">Keypad Software</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">iphone software</a></li>
+                                </ul>
+                            </li>
+                    </ul>
+                    <ul class="navbar-nav mx-lg-4">
+                        <li class="nav-item mx-4">
+                            <a href="{% url 'login' %}" class="nav-link">Login</a>
+                        </li>
+                        <li class="nav-item mx-4">
+                            <a href="{% url 'signup' %}" class="nav-link">Signup</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="container ">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-6 product-img bg-light">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{{data.productimage.url}}" alt="vivo t3x 5g Image" class="d-block w-100 img">
+                    </div>
+                    <div>
+                        <h3>Description:</h3>
+                        <p>{{ data.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="product-actions">
+                            <a href="{% url 'login' %}" class="btn btn-primary mx-2">Buy Now</a>
+                            <a href="{% url 'login' %}"class="btn btn-secondary mx-2">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-6 product-specifications">
+               
+                <h2>{{ data.productname }}</h2>
+                <h3><i style="font-size:24px" class="fa">&#xf156;</i>{{ data.productprice}}</h3>
+                <div class="row">
+                    <h5>Specifications</h5>
+                    <div class="col-6">
+                        <h6>In The Box</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.inthebox }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Display Type</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.displaytype }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Battery Capacity</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.batterycapacity }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Processor Brand</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.processorbrand }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Internal Storage</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.internalstorage }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>RAM</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.ram }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Primary Camera</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.primarycamera }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Operating System</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.operatingsystem }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Memory Card Slot Type</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>
+                            {{ data.memorycardslottype}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Supported Networks</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.supportednetworks }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <h6>Warranty Summary</h6>
+                    </div>
+                    <div class="col-6">
+                        <p>{{ data.warrantysummary }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="container-fluid py-2">
+        <div class="row">
+            <div class="col-6 text-left pt-3">
+                <p>&copy; 2024 Powered by Shree Hari Telecom</p>
+            </div>
+            <div class="col-6 text-end pt-3">
+                <p><a href="#">Terms and Conditions</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
